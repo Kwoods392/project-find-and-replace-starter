@@ -23,23 +23,19 @@ function getCellElements(currentRowElement) {
 replaceAllButton.addEventListener("click", function () {
   let find = findInput.value;
   let replace = replaceInput.value;
-  // console.log(find);
-  // console.log(replace);
-
   for (let i = 0; i < rowElements.length; i++) {
-    let row = getCellElements(rowElements[i]);
-    for (let j = 0; j < row.length; j++) {
-      // console.log(row[j].innerHTML);
-      if (row[j].innerHTML.includes(findInput.value)) {
-        console.log("hi");
-      }
-      if (row[j].innerHTML.replace(replaceInput.value)) {
-        //console.log("hello");
+    let cellElements = getCellElements(rowElements[i]);
+    for (let j = 0; j < cellElements.length; j++) {
+      if (cellElements[j].innerHTML.includes(find)) {
+        cellElements[j].innerHTML = cellElements[j].innerHTML.replace(
+          find,
+          replace
+        );
       }
     }
-
-    //console.log(row);
   }
+
+  //console.log(row);
 });
 
 // One last thing: dedicate very careful attention to using variables and
